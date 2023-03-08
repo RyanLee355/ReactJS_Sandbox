@@ -25,9 +25,21 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+    <!-- Custom font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/71a2060c36.js" crossorigin="anonymous"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div class="cursor cursor-dot"> <!-- PLACE INTO COMPONENT LATER! -->
+    </div>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -40,4 +52,32 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <footer>
+    <script>
+      $( ( ) => {
+        $( window ).mousemove ( function ( e ) {
+          $( '.cursor' ).css ( {
+            left: e.pageX,
+            top: e.pageY
+          } );
+        } );
+        $( window ).mousemove ( function ( e ) {
+          $( 'a, p, h1, img' ).on ( 'mouseenter', function ( ) {
+            $( '.cursor' ).addClass ( 'active' );
+          } );
+        } );
+        $( window ).mousemove ( function ( e ) {
+          $( 'a, p, h1, img' ).on ( 'mouseleave', function ( ) {
+            $( '.cursor' ).removeClass ( 'active' );
+          } );
+        } );
+        $( window ).mousedown ( function ( e ) {
+          $( '.cursor' ).addClass ( 'mousedown' );
+        } );
+        $( window ).mouseup ( function ( e ) {
+          $( '.cursor' ).removeClass ( 'mousedown' );
+        } );
+      } );
+      </script>
+  </footer>
 </html>
