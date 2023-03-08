@@ -1,0 +1,456 @@
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownContent {
+    0% {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideDownBG {
+    0% {
+        opacity: 0;
+        background-position: 0 -100vh;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bgBounce {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 0 -30px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes uiuxGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ------------------------------ Media Queries ----------------------------------- */
+
+@media only screen and (max-width: 900px) {
+
+}
+
+/* ------------------------------ Cursor Section ----------------------------------- */
+
+@media (hover: none) {
+    .cursor {
+        display: none !important;
+    }
+}
+
+* {
+    cursor: none;
+}
+
+.cursor {
+    --size: 30px;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    pointer-events: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 99999999998;
+}
+
+.cursor.cursor-dot {
+    background: #ffffff;
+    /* This defines the color of the cursor */
+    mix-blend-mode: difference;
+    /* Delete this line if you dont want the circle to invert */
+    transition: width 0.2s, height 0.2s, background-color 0.2s ease;
+}
+
+.cursor-dot.active {
+    --size: 60px;
+    background-color: #ffffff;
+}
+
+.cursor-dot.mousedown {
+    --size: 100px;
+}
+
+/* ------------------------------ Global Styles Section ----------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+
+    transition: background-color 2s ease;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.gray {
+    color: gray;
+}
+
+.darkMode {
+    background-color: #24292E;
+    color: #24292E;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.inlineDisplay {
+    display: inline;
+}
+
+/* ------------------------------ Global Styles Section ----------------------------------- */
+
+nav {
+    height: 70px;
+    padding: 20px 36px;
+    align-items: center;
+    /* TEST */
+    display: flex;
+    /* TEST */
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    color: white;
+
+    animation: fadeInAnimation ease 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 1.5s;
+}
+
+nav>* {
+    margin: 10px 2rem;
+    transition: text-shadow .2s ease-out;
+    transition: font-size .2s ease;
+}
+
+nav>h1 {
+    font-size: 1.7vw;
+}
+
+nav>*:hover {
+    text-shadow: 0px 0px 5px rgb(223, 223, 223);
+    font-size: 1.3vw;
+}
+
+nav>p {
+    font-size: 12px;
+}
+
+nav>p:hover {
+    font-size: 20px;
+}
+
+.navbar-github {
+    background: none;
+    border: none;
+    color: white;
+}
+
+.navbar-theme_button {
+    position: absolute;
+    left: 95%;
+}
+
+/* ------------------------------ Landing Page ----------------------------------- */
+
+.landing {
+    background-image: url("../public/images/landingBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slideDownBG 1.5s 1 ease, bgBounce 7s ease-in-out infinite;
+    animation-delay: 0s, 1.5s;
+    min-height: 80vh;
+}
+
+.landing-text_box {
+    width: 55%;
+    padding: 8% 10% 0px 10%;
+    color: white;
+    user-select: none;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 100% 100%;
+    background-clip: text;
+
+    animation: slideDownContent ease 1.5s;
+}
+
+.landing-text_box>h1 {
+    margin: 0;
+    font-size: 5.8vw;
+    transition: .5s ease-out;
+}
+
+.landing-text_box>h1:hover {
+    color: transparent;
+}
+
+.landing-text_box>h2 {
+    margin: 0;
+    font-size: 2.1vw;
+}
+
+.landing-text_box>h3 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.landing-uiux {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 300% 300%;
+    animation: uiuxGradient 10s ease infinite;
+    padding: 0px 10px; 
+    border-radius: 10px;
+}
+
+.landing-button_holder {
+    width: 40%;
+    margin: 20px auto;
+}
+
+.landing-button {
+    width: 100%;
+    border-radius: 60px;
+    height: 8vh;
+    background-color: #636DBC;
+    border-color: white;
+    border-style: solid;
+    border-width: .5vh;
+    transition: 0.3s;
+}
+
+.landing-button:hover {
+    background-color: white;
+}
+.landing-button:hover>i {
+    color: black;
+}
+
+.landing-button_icon {
+    color: white;
+}
+
+.fadeIn-animation_08 {
+    animation: fadeInAnimation ease 2s;
+    animation-fill-mode: backwards;
+    animation-delay: .8s;
+}
+
+.fadeIn-animation_10 {
+    animation: fadeInAnimation ease 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 1s;
+}
+
+.fadeIn-animation_12 {
+    animation: fadeInAnimation ease 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 1.2s;
+}
+
+/* ------------------------------ Banner CSS ----------------------------------- */
+
+.banner {
+    padding: 0 50px;
+}
+
+.banner-track {
+    height: 100px;
+    display: flex;
+    gap: 2em;
+}
+
+.banner-item {
+    height: 100%;
+    aspect-ratio: 2.5;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.banner-item>* {
+    margin: 0;
+}
+
+
+/* ------------------------------ Gallery ----------------------------------- */
+
+/* .image-track_holder {
+    width: 100%;
+    overflow: hidden;
+}
+
+#image-track {
+    display: flex;
+    gap: 3vmin;
+    user-select: none;
+}
+  
+#image-track > .image {
+    width: 250px;
+    height: 335px;
+    object-fit: cover;
+    object-position: 100% center;
+    transition: 1s ease;
+} */
+
+/* ------------------------------ Website Demo Display ----------------------------------- */
+.webDisplay {
+    border: 4px solid red;
+    width: 100%;
+    height: 1000px;
+}
+
+.webDisplay-holder {
+    position: absolute;
+}
+
+.webDisplay-site {
+    border: 4px solid green;
+    width: 60%;
+    position: relative;
+    margin: auto;
+}
+
+.webDisplay-site>img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 1s ease;
+}
+
+.webDisplay-site>img:hover {
+    transform: translate(0, -100px);
+}
+
+.webDisplay-overlay {
+    background-color: red;
+    height: 50px;
+    width: 100%;
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------ Cards Section ----------------------------------- */
+.cards {
+    border: 4px solid green;
+    display: flex;
+    padding: 50px 0;
+}
+
+.cards>h1 {
+    margin-left: 200px;
+}
+
+.card-gallery {
+    width: 20%;
+    border: 4px solid blue;
+    display: flex;
+    justify-content: center;
+    height: 450px;
+    margin-left: auto;
+    margin-right: 200px;
+}
+
+.card {
+    width: 13%;
+    border-radius: 1vmin;
+    border: 4px solid silver;
+    aspect-ratio: 5 / 7;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+    background-position: center;
+    background-size: cover;
+}
+
+.card:nth-child(1) {
+    transform: translateX(-10%) rotate(-1deg);
+    background-image: url("https://images.unsplash.com/photo-1568572933382-74d440642117?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60n");
+}
+
+.card:nth-child(2) {
+    transform: rotate(2deg);
+    background-image: url("https://images.unsplash.com/photo-1534351450181-ea9f78427fe8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+}
+
+.card:nth-child(3) {
+    transform: translateX(-6%) rotate(-3deg);
+    background-image: url("https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+}
+
+.card:nth-child(4) {
+    transform: translate(10%, 3%) rotate(5deg);
+    background-image: url("https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+}
+
+.card-gallery:hover > .card:nth-child(1) {
+    transform: translate(-85%, 16%) rotate(-24deg);
+}
+
+.card-gallery:hover > .card:nth-child(2) {
+    transform: translate(-25%, 5%) rotate(-8deg);
+}
+
+.card-gallery:hover > .card:nth-child(3) {
+    transform: translate(25%, 5%) rotate(8deg);
+}
+
+.card-gallery:hover > .card:nth-child(4) {
+    transform: translate(85%, 16%) rotate(24deg);
+}
