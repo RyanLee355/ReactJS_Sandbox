@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Custom Sandbox React App
+
+This project is a trial and learning environment for a web application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
